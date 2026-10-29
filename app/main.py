@@ -1,5 +1,4 @@
 from contextlib import asynccontextmanager
-import uvicorn
 from fastapi import FastAPI
 from app.config.settings import settings
 from app.db.mongo import mongo
@@ -34,6 +33,3 @@ app = FastAPI(
 
 app.include_router(api_router)
 exception_handler(app)
-
-if __name__ == "__main__":
-    uvicorn.run("app.main:app", host="127.0.0.1", port=settings.PORT, reload=True)
